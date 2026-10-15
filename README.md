@@ -369,3 +369,18 @@ Live MySQL connectivity, Tomcat deployment, and frontend-to-backend integration 
 ##  License
 
 No license has been specified yet. Add a `LICENSE` file if you intend to distribute the project publicly.
+
+##  Team Members & Contributions
+
+| S. No. | Name | Role | Contribution |
+|---:|---|---|---|
+| 1 | Manu Sharma | Team Leader | PPT Designing and Project Presentation |
+| 2 | Sneha Gupta | Team Member | Database Design and Creation |
+| 3 | Tusha Varshney | Team Member | Frontend Development and UI Design |
+| 4 | Preeti Jha | Team Member | Backend Development and Java Integration |
+
+###  Team Collaboration
+
+Our team worked collaboratively to develop JavaMaster, an online Java quiz and assessment platform. Each member contributed to a specific area of the project, including presentation design, database development, frontend implementation, and backend development.
+
+Together, these contributions support the development of an interactive, organized, and user-friendly Java learning and assessment platform.
