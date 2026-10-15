@@ -1,0 +1,11 @@
+/app/applet/backend-java/src/main/java/com/javamaster/dao/IQuestionDAO.java
+/app/applet/backend-java/src/main/java/com/javamaster/dao/QuestionDAOImpl.java
+/app/applet/backend-java/src/main/java/com/javamaster/exception/DatabaseOperationException.java
+/app/applet/backend-java/src/main/java/com/javamaster/exception/QuizPlatformException.java
+/app/applet/backend-java/src/main/java/com/javamaster/model/EvaluationResult.java
+/app/applet/backend-java/src/main/java/com/javamaster/model/Question.java
+/app/applet/backend-java/src/main/java/com/javamaster/service/IScoringEngine.java
+/app/applet/backend-java/src/main/java/com/javamaster/service/StandardScoringEngine.java
+/app/applet/backend-java/src/main/java/com/javamaster/servlet/CorsFilter.java
+/app/applet/backend-java/src/main/java/com/javamaster/servlet/QuestionServlet.java
+/app/applet/backend-java/src/main/java/com/javamaster/util/DBConnectionManager.java

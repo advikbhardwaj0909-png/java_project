@@ -1,0 +1,6 @@
+{
+  "name": "JavaMaster - Online Java Quiz & Assessment Platform",
+  "description": "Timed Java programming quizzes, comprehensive performance analytics, topic tags, real-time leaderboards, and administrative controls.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
