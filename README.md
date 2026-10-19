@@ -246,7 +246,6 @@ Install the following software:
 The backend is intended for a Java 17-compatible environment. Use a JDK compatible with the project's Maven configuration and installed Tomcat version.
 
 Verify the installations in Windows Command Prompt:
-
 ```bat
 git --version
 node --version
@@ -254,6 +253,8 @@ npm --version
 java -version
 mvn -version
 mysql --version
+```
+
 ```
 
 ### 1. Clone the Repository
