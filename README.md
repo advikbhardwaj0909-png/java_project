@@ -1,6 +1,6 @@
 # JavaMaster — Online Java Quiz & Assessment Platform
 
-JavaMaster is a web-based Java programming quiz and assessment platform designed to help students practise Java, attempt timed quizzes, evaluate their performance, and explore quiz rankings. The project combines a React and TypeScript frontend with a Java Servlet backend foundation and a MySQL database.
+JavaMaster is a web-based Java programming quiz platform designed to help students practise Java, attempt timed quizzes, and review their performance. The project combines a React and TypeScript frontend with a Java Servlet backend foundation and a MySQL database.
 
 **Repository:** [java_project](https://github.com/advikbhardwaj0909-png/java_project)
 
@@ -8,8 +8,7 @@ JavaMaster is a web-based Java programming quiz and assessment platform designed
 
 - [Project Overview](#project-overview)
 - [Objectives](#objectives)
-- [Main Features](#main-features)
-- [User Roles](#user-roles)
+- [Features](#features)
 - [Technology Stack](#technology-stack)
 - [System Architecture](#system-architecture)
 - [Project Structure](#project-structure)
@@ -21,37 +20,34 @@ JavaMaster is a web-based Java programming quiz and assessment platform designed
 - [Security Considerations](#security-considerations)
 - [Current Status and Limitations](#current-status-and-limitations)
 - [Future Enhancements](#future-enhancements)
-- [Team Members and Contributions](#team-members-and-contributions)
+- [Team Members](#team-members)
 - [License](#license)
 
 ## Project Overview
 
-JavaMaster provides an interface for practising Java through topic-based quizzes and a timed assessment workflow. The frontend includes a quiz catalog, a question interface, result-related screens, a leaderboard view, and administrative screens.
+JavaMaster provides an interface for practising Java through topic-based quizzes and timed assessments.
 
-The separate Java backend contains servlet-based API functionality, scoring logic, database-access components, and a MySQL schema.
+The frontend includes a quiz catalog, a question interface, result screens, a leaderboard view, and administrative screens. The Java backend contains servlet-based API functionality, scoring logic, database-access components, and a MySQL schema.
 
-The project aims to bring Java practice, assessment, and question management into one organized platform.
-
-> **Implementation note:** The frontend, backend foundation, database deployment, and live integration are separate parts of the project. Features that depend on a working database or backend connection must be verified in the target environment.
+The frontend and backend are separate parts of the project. Features that depend on live database connectivity or complete backend integration must be tested in the target environment.
 
 ## Objectives
 
 - Provide an interactive platform for Java programming practice.
 - Offer a timed quiz interface with question navigation.
 - Evaluate answers using scoring logic.
-- Present assessment results and leaderboard information through the interface.
-- Organize quiz questions by topics and categories.
+- Organize questions by topics and categories.
+- Present assessment results through the interface.
 - Demonstrate Java web development, database access, and unit testing.
 
-## Main Features
+## Features
 
 ### Quiz Interface
 
-- Quiz catalog with curated assessment tracks.
-- Custom topic-based quiz interface.
-- Timed quiz screen and question navigation.
+- Quiz catalog with assessment tracks.
+- Timed quiz interface and question navigation.
 - Multiple-choice answer selection.
-- Java code snippets displayed in quiz questions.
+- Java code snippets in questions.
 - Question flagging and review controls.
 - Scoring logic with unit tests.
 
@@ -61,27 +57,15 @@ The project aims to bring Java practice, assessment, and question management int
 - Admin sign-in interface.
 - Question-bank management controls.
 
-The availability of these administrative operations, including authentication and persistent database updates, must be verified against the deployed backend.
+The administrative interface is present in the frontend. Complete authentication, authorization, and persistent database operations require implementation and verification.
 
 ### Assessment and Rankings
 
-- Result-related interface.
+- Quiz result interface.
 - Leaderboard interface.
-- Database schema prepared for quiz attempts and leaderboard entries.
+- Database schema for questions, users, quiz attempts, and leaderboard entries.
 
-Saving quiz attempts, loading rankings from persistent database records, and complete end-to-end assessment workflows require backend implementation and integration verification.
-
-## User Roles
-
-The interface and project design cover three intended user roles:
-
-| Role | Intended responsibilities |
-|---|---|
-| Admin | Manage platform content and administrative functions. |
-| Quiz Creator | Prepare and maintain quiz content where creator workflows are implemented. |
-| Participant | Take quizzes and review available results and rankings. |
-
-Complete authentication, authorization, and role-specific access controls should not be considered operational until they have been implemented and tested.
+Persistent quiz attempts and database-backed rankings should be considered incomplete until their backend workflows are connected and tested.
 
 ## Technology Stack
 
@@ -89,10 +73,10 @@ Complete authentication, authorization, and role-specific access controls should
 
 | Technology | Purpose |
 |---|---|
-| React 19 | Component-based user interface |
+| React 19 | User interface |
 | TypeScript | Type checking and application development |
 | Vite | Development server and frontend build |
-| Tailwind CSS | User interface styling |
+| Tailwind CSS | UI styling |
 | Lucide React | Icons |
 | Motion | UI animations |
 
@@ -100,7 +84,7 @@ Complete authentication, authorization, and role-specific access controls should
 
 | Technology | Purpose |
 |---|---|
-| Java | Backend programming language |
+| Java | Backend programming |
 | Apache Maven | Dependency management and build |
 | Jakarta Servlets 6.0 | HTTP request handling |
 | Apache Tomcat 10.1+ | Servlet container |
@@ -112,59 +96,53 @@ Complete authentication, authorization, and role-specific access controls should
 
 ### Database
 
-- Database: MySQL
-- Database name: `quiz_platform`
-- Schema file: `backend-java/schema.sql`
+- **Database:** MySQL
+- **Database name:** `quiz_platform`
+- **Schema file:** `backend-java/schema.sql`
 
 ## System Architecture
 
-The frontend and Java backend are maintained separately. The following diagram represents the intended application architecture; live connectivity must be verified independently.
+The following diagram represents the intended architecture. Verify the live connection between each layer before treating the complete flow as operational.
 
 ```text
-                    User
-                     |
-                     v
+                 User
+                   |
+                   v
        React + TypeScript Frontend
-                     |
-                HTTP / JSON
-                     |
-                     v
+                   |
+               HTTP / JSON
+                   |
+                   v
              Apache Tomcat
               Java Servlets
-                     |
-                     v
-               Service Layer
-            Scoring and Logic
-                     |
-                     v
-                 DAO Layer
-              JDBC Operations
-                     |
-                     v
+                   |
+                   v
+              Service Layer
+             Scoring Logic
+                   |
+                   v
+                DAO Layer
+             JDBC Operations
+                   |
+                   v
                 HikariCP
-             Connection Pool
-                     |
-                     v
-                MySQL 8
+            Connection Pool
+                   |
+                   v
+                 MySQL
               quiz_platform
 ```
 
-The servlet layer handles HTTP requests, the service layer contains application logic, and the DAO layer is responsible for database operations.
+The servlet layer handles HTTP requests, the service layer contains application logic, and the DAO layer manages database operations.
 
 ## Project Structure
 
-The repository uses a root-level React frontend and a separate Maven backend.
+The repository contains a root-level React frontend and a separate Maven backend.
 
 ```text
 java_project/
 ├── src/
 │   ├── components/
-│   │   ├── Navbar.tsx
-│   │   ├── QuizCatalog.tsx
-│   │   ├── QuizEngine.tsx
-│   │   ├── QuizResultView.tsx
-│   │   ├── LeaderboardView.tsx
-│   │   └── AdminDashboard.tsx
 │   ├── data/
 │   ├── types/
 │   ├── utils/
@@ -196,39 +174,39 @@ java_project/
 └── README.md
 ```
 
-This is a simplified view of the expected structure. Consult the actual repository for the complete file list.
+This is a simplified structure. Consult the repository for the complete file list.
 
 ## Database Design
 
-The backend schema defines four main tables:
+The schema defines four main tables:
 
 | Table | Purpose |
 |---|---|
-| `users` | Stores user account information and roles. |
-| `questions` | Stores quiz questions and related question data. |
-| `quiz_attempts` | Stores quiz attempt information and scores. |
-| `leaderboard_entries` | Stores leaderboard score and ranking information. |
+| `users` | User account information and roles |
+| `questions` | Quiz questions and related data |
+| `quiz_attempts` | Quiz attempt information and scores |
+| `leaderboard_entries` | Leaderboard score and ranking information |
 
-The exact columns, data types, constraints, and relationships are defined in [`backend-java/schema.sql`](backend-java/schema.sql).
+The exact columns, constraints, and relationships are defined in [`backend-java/schema.sql`](backend-java/schema.sql).
 
-The presence of these tables in the schema does not by itself confirm that all corresponding application workflows are connected to MySQL.
+The presence of a table in the schema does not confirm that its application workflow is fully implemented.
 
 ## Java Concepts
 
-The backend codebase demonstrates or is structured around the following concepts. Refer to the actual source code and tests when explaining their implementation.
+The backend codebase is structured around these concepts:
 
 - **Encapsulation:** Organizing data and behaviour within classes.
 - **Interfaces:** Defining contracts for services and database-access components.
-- **Polymorphism:** Using interface-based implementations, including scoring logic.
-- **Exception Handling:** Handling application and database errors.
+- **Polymorphism:** Using interface-based implementations.
+- **Exception handling:** Handling application and database errors.
 - **JDBC:** Executing SQL operations from Java.
 - **Servlets:** Handling HTTP requests.
-- **DAO Pattern:** Separating database-access logic from application logic.
-- **Connection Pooling:** Managing database connections with HikariCP.
-- **Unit Testing:** Testing scoring logic using JUnit 5.
-- **Collections:** Organizing question and application data using suitable Java collection types.
+- **DAO pattern:** Separating database-access logic from application logic.
+- **Connection pooling:** Managing database connections with HikariCP.
+- **Unit testing:** Testing scoring logic with JUnit 5.
+- **Collections:** Organizing question and application data.
 
-Only claim inheritance, generics, multithreading, synchronization, or other advanced concepts as implemented when the source code provides clear evidence.
+Explain each concept using the actual classes and methods in the repository. Do not claim advanced concepts such as multithreading or synchronization unless the code demonstrates them.
 
 ## Getting Started
 
@@ -243,9 +221,12 @@ Install the following software:
 - MySQL Server
 - Apache Tomcat 10.1+
 
-The backend is intended for a Java 17-compatible environment. Use a JDK compatible with the project's Maven configuration and installed Tomcat version.
+The backend is configured for a Java 17-compatible environment. Use a JDK supported by the Maven configuration.
 
-Verify the installations in Windows Command Prompt:
+### 1. Verify Your Installations
+
+Open Windows Command Prompt and run:
+
 ```bat
 git --version
 node --version
@@ -255,52 +236,54 @@ mvn -version
 mysql --version
 ```
 
-```
+If a command is not recognized, install or configure the corresponding software before continuing.
 
-### 1. Clone the Repository
+### 2. Clone the Repository
 
-```bash
+If the repository is not already on your computer, run:
+
+```bat
 git clone https://github.com/advikbhardwaj0909-png/java_project.git
 cd java_project
 ```
 
-### 2. Install Frontend Dependencies
+If you already have the project locally, open its existing folder instead of cloning it again.
 
-Run the following command from the repository root:
+### 3. Install Frontend Dependencies
 
-```bash
+Run these commands from the repository root:
+
+```bat
 npm install
 ```
 
-### 3. Start the Frontend
+### 4. Start the Frontend
 
-```bash
+```bat
 npm run dev
 ```
 
-Open the local URL printed by Vite in your terminal.
+Open the local URL printed by Vite in the terminal.
 
-To create a production frontend build:
+To create a production build:
 
-```bash
+```bat
 npm run build
 ```
 
 To check TypeScript:
 
-```bash
+```bat
 npx tsc --noEmit
 ```
 
-These commands verify the frontend build and type checking. They do not verify that the Java backend is deployed or connected.
+These commands verify the frontend build and type checking. They do not verify backend deployment or database integration.
 
 ## Backend Setup
 
 ### 1. Configure MySQL
 
-Start MySQL Server and create the database using the provided schema.
-
-From the repository root, run in Windows Command Prompt:
+Start MySQL Server and import the schema from the repository root:
 
 ```bat
 mysql -u root -p < backend-java\schema.sql
@@ -314,33 +297,33 @@ Verify that the database tables exist:
 mysql -u root -p -e "SHOW TABLES IN quiz_platform;"
 ```
 
-If the schema import fails, inspect `backend-java/schema.sql` and the MySQL error message before proceeding.
+If the import fails, inspect `backend-java/schema.sql` and the MySQL error message.
 
 ### 2. Configure Database Credentials
 
-Inspect the actual database configuration used by `DBConnectionManager.java`. The expected configuration location in the project documentation is:
+Inspect `DBConnectionManager.java` to confirm how database settings are loaded.
+
+The configuration file used by the project may be located at:
 
 `backend-java/src/main/resources/db.properties`
 
-Confirm that this file exists and check which configuration properties the backend reads.
+Use the exact property names expected by the implementation.
 
-If the backend uses a properties file, configure the local database URL, username, and password using the exact property names expected by the code.
-
-If the backend supports environment-variable overrides, Windows Command Prompt can set example values as follows:
+If the backend supports environment-variable overrides, Windows Command Prompt can set the following example values:
 
 ```bat
 set DB_URL=jdbc:mysql://localhost:3306/quiz_platform
-set DB_USERNAME=root
+set DB_USERNAME=YOUR_MYSQL_USERNAME
 set DB_PASSWORD=YOUR_MYSQL_PASSWORD
 ```
 
-These environment variables work only if the implementation explicitly reads these names. Replace the example password with your local password.
+These variables work only if the backend explicitly reads these names. Replace the placeholders with your local configuration.
 
-**Security:** Never commit real passwords, database credentials, or API keys to GitHub.
+**Security:** Never commit real passwords, database credentials, or API keys to GitHub. For deployment, use a dedicated database account with only the permissions the application requires.
 
 ### 3. Build and Test the Backend
 
-From the repository root:
+From the repository root, run:
 
 ```bat
 mvn -f backend-java\pom.xml clean test
@@ -352,13 +335,13 @@ To package the backend:
 mvn -f backend-java\pom.xml clean package
 ```
 
-If the build succeeds, the expected WAR file is:
+If packaging succeeds, the expected WAR file is:
 
 ```text
 backend-java/target/javamaster-backend.war
 ```
 
-The actual build result and test output should be checked in your environment.
+Check the actual Maven output to confirm that the build and tests pass.
 
 ### 4. Deploy to Apache Tomcat
 
@@ -369,22 +352,22 @@ The actual build result and test output should be checked in your environment.
 5. Start Tomcat using its `bin\catalina.bat` script.
 6. Check the Tomcat logs for deployment or database errors.
 
-The expected context path is:
+The expected application context path is:
 
 ```text
 /javamaster-backend
 ```
 
-Confirm the deployed context path and servlet URL mappings before testing the API.
+Confirm the actual context path and servlet URL mappings before testing the API.
 
 ## API Endpoints
 
-The initial backend implementation identifies the following question endpoints:
+The initial backend API includes question retrieval endpoints:
 
 | Method | Endpoint | Purpose |
 |---|---|---|
-| GET | `/api/questions` | Retrieve quiz questions. |
-| GET | `/api/questions?category=Core+OOP` | Retrieve questions filtered by category. |
+| GET | `/api/questions` | Retrieve questions |
+| GET | `/api/questions?category=Core%20OOP` | Retrieve questions filtered by category |
 
 After deploying the WAR locally, the expected test URL is:
 
@@ -395,64 +378,64 @@ http://localhost:8080/javamaster-backend/api/questions
 To test category filtering:
 
 ```text
-http://localhost:8080/javamaster-backend/api/questions?category=Core+OOP
+http://localhost:8080/javamaster-backend/api/questions?category=Core%20OOP
 ```
 
-A successful response should return JSON question data according to the servlet implementation and available database records.
+These URLs assume the application is deployed under the expected context path and that the servlet mappings match. Test the deployed endpoints to confirm availability and response format.
 
-**Live API availability has not been confirmed by this documentation.** Test the deployed endpoints before describing them as operational.
-
-Saving quiz attempts, updating persistent leaderboard data, and completing administrative actions require additional implementation and verification.
+Saving quiz attempts, updating persistent leaderboard data, and completing administrative operations require additional implementation and verification.
 
 ## Security Considerations
 
-The following are recommended practices for a secure deployment:
+Before using the application beyond local development:
 
-- Never commit credentials or secrets.
+- Do not commit credentials or secrets.
 - Use prepared statements for SQL queries.
 - Validate incoming data on the server.
-- Implement authentication and authorization for administrative operations.
+- Implement server-side authentication and authorization for administrative operations.
 - Restrict CORS to trusted origins.
 - Avoid exposing correct answers before quiz submission.
 - Use HTTPS and secure session handling in production.
-- Handle database and application errors without exposing sensitive details.
+- Avoid returning internal database errors to clients.
+- Use a dedicated database account instead of the MySQL root account.
 
-These recommendations should not be interpreted as confirmation that every control has already been implemented.
+These are security requirements and recommendations, not a claim that every control is already implemented.
 
 ## Current Status and Limitations
 
-The project includes a React and TypeScript frontend and a Java backend foundation.
+JavaMaster includes a React and TypeScript frontend and a Java backend foundation.
 
-The development report records a successful Maven build and passing scoring unit tests in the development environment. These results should be confirmed using the current source code and test output.
+The development report records a successful Maven build and passing scoring unit tests in the development environment. Confirm these results against the current source code and test output.
 
-The following areas still require verification in the target environment:
+The following areas require verification in the target environment:
 
 - MySQL connectivity and schema setup.
 - Apache Tomcat deployment.
 - Live frontend-to-backend communication.
-- End-to-end administrator authentication.
+- Secure administrator authentication and authorization.
 - Persistent quiz attempt and score storage.
-- Leaderboard data loaded from the database.
+- Leaderboard data loaded from database records.
 - Integration tests across the frontend, backend, and database.
 
-Update this section as each item is implemented and tested.
+Update this section as implementation and testing progress.
 
 ## Future Enhancements
 
-Potential improvements include:
+Potential improvements for subsequent development include:
 
-- Complete user registration and authentication.
-- Role-based access control.
+- User registration and secure login.
+- Server-side role-based access control.
 - Persistent quiz attempts and scores in MySQL.
 - A leaderboard based on stored results.
 - Complete quiz creator and approval workflows.
-- Integration tests and improved error handling.
+- Quiz history and performance analytics.
+- Additional integration tests and improved error handling.
 - Secure application deployment.
 
-## Team Members and Contributions
+## Team Members
 
 | S. No. | Name | Role | Contribution |
-|---:|---|---|---|
+|---|---|---|---|
 | 1 | Manu Sharma | Team Leader | PPT Designing and Project Presentation |
 | 2 | Sneha Gupta | Team Member | Database Design and Creation |
 | 3 | Tusha Varshney | Team Member | Frontend Development and UI Design |
@@ -460,10 +443,4 @@ Potential improvements include:
 
 ### Team Collaboration
 
-Our team worked collaboratively to develop JavaMaster, an online Java quiz and assessment platform. Each member contributed to a specific area of the project, including presentation design, database development, frontend implementation, and backend development.
-
-Together, these contributions support the development of an organized and user-friendly Java learning and assessment platform.
-
-## License
-
-No license has been specified in this README. If you intend to distribute the project publicly, choose an appropriate open-source license and add the corresponding `LICENSE` file.
+Our team worked collaboratively on JavaMaster. Contributions include presentation design, database
